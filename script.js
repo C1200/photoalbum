@@ -74,7 +74,7 @@ var loadimg = (col, img) => {
     var q = new URLSearchParams(`?${location.hash.substr(1, location.hash.length)}`);
 
     if (!album.collections[col].photos[img]) {
-        location.hash = `#${col}`;
+        location.hash = `#col=${col}`;
     }
     
     var x = document.createElement("span");
