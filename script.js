@@ -114,4 +114,4 @@ var home = () => {
 
 window.onhashchange = hash;
 
-this should fail;;;())(
+this should fail;;;({[=
