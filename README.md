@@ -24,3 +24,9 @@ photos: `Photo[]` The photos in the collection.
 caption: `string` The caption of the photo.
 
 url: `string` The url of the photo.
+
+## To Do
+
+- Next/previous photo button
+- Slide show button
+- Caching
