@@ -79,6 +79,7 @@ var loadimg = (col, img) => {
     x.onclick = () => { q.delete("view"); location.hash = `#${q.toString()}`; hash(); }
     var image = document.createElement("img");
     image.src = album.collections[col].photos[img].url;
+    image.title = "Click to open image in new tab";
     image.onclick = () => window.open(album.collections[col].photos[img].url);
     var p = document.createElement("p");
     p.innerText = album.collections[col].photos[img].caption;
