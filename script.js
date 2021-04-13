@@ -73,6 +73,10 @@ var loadcol = (idx) => {
 var loadimg = (col, img) => {
     var q = new URLSearchParams(`?${location.hash.substr(1, location.hash.length)}`);
 
+    if (!album.collections[col].photos[img]) {
+        location.hash = `#${col}`;
+    }
+    
     var x = document.createElement("span");
     x.innerHTML = "x";
     x.className = "exit";
