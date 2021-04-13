@@ -1,6 +1,8 @@
 # Photo Album
 A nice one page site to display photos.
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/C1200/photoalbum)
+
 ## Setup
 
 1. Upload photos to some sort of host.
