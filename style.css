@@ -39,7 +39,7 @@ body {
 
 .view img {
     max-width: 100%;
-    max-height: 90%;
+    max-height: 45%;
     height: auto;
     margin-top: 20px;
     cursor: pointer;
@@ -99,5 +99,4 @@ body {
 @media only screen and (min-width: 768px) {
     /* Desktop */
     .collection { width: 30% }
-    .view img { max-height: 50%; }
 }
