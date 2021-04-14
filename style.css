@@ -99,5 +99,4 @@ body {
 @media only screen and (min-width: 768px) {
     /* Desktop */
     .collection { width: 30% }
-    .view img { max-width: 100%; height: auto; }
 }
