@@ -58,16 +58,20 @@ body {
     text-align: center;
 }
 
-.exit {
+.controls {
     color: white;
     background-color: gray;
     border: 1px solid black;
     border-radius: 50%;
     padding: 5px 10px;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
     cursor: pointer;
+    margin-right: 5px;
+}
+
+.controls-container {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
 }
 
 @media only screen and (min-width: 600px) {
