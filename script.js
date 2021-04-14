@@ -10,12 +10,15 @@ window.onload = () => {
     view.className = "view";
     document.body.append(colcontain, view, data, style);
 
-    data.onload = () => { home(); hash(); }
+    data.onload = () => {
+        home();
+        hash();
+    }
 }
 
 document.onscroll = () => {
-    var x = document.getElementsByClassName("exit")[0];
-    x.style.bottom = `${5 - window.scrollY}px`;
+    var x = document.getElementsByClassName("controls-container")[0];
+    x.style.bottom = `${10-window.scrollY}px`;
     var view = document.getElementsByClassName("view")[0];
     view.style.top = `${window.scrollY}px`;
 }
@@ -49,11 +52,15 @@ var loadcol = (idx) => {
         home();
     }
 
+    var controls = document.createElement("div");
+    controls.className = "controls-container";
+
     var x = document.createElement("span");
     x.innerHTML = "x";
-    x.className = "exit";
+    x.className = "controls";
     x.onclick = () => { q.delete("col"); location.hash = `#${q.toString()}`; hash(); }
-    colcontain.append(x);
+    controls.append(x);
+    colcontain.append(controls);
 
     document.title = `${album.collections[idx].name} - ${album.title}`;
     album.collections[idx].photos.forEach((image, idx) => {
@@ -76,11 +83,30 @@ var loadimg = (col, img) => {
     if (!album.collections[col].photos[img]) {
         location.hash = `#col=${col}`;
     }
-    
+
+    var controls = document.createElement("div");
+    controls.className = "controls-container";
+
     var x = document.createElement("span");
     x.innerHTML = "x";
-    x.className = "exit";
+    x.className = "controls";
     x.onclick = () => { q.delete("view"); location.hash = `#${q.toString()}`; hash(); }
+    controls.append(x);
+    if (parseInt(q.get("view")) > 0) {
+        var prev = document.createElement("span");
+        prev.innerText = "<"
+        prev.className = "controls";
+        prev.onclick = () => { q.set("view", parseInt(q.get("view")) - 1); location.hash = `#${q.toString()}`; hash(); }
+        controls.append(prev);
+    }
+    if (parseInt(q.get("view")) < album.collections[col].photos.length-1) {
+        var next = document.createElement("span");
+        next.innerText = ">"
+        next.className = "controls";
+        next.onclick = () => { q.set("view", parseInt(q.get("view")) + 1); location.hash = `#${q.toString()}`; hash(); }
+        controls.append(next);
+    }
+
     var image = document.createElement("img");
     image.src = album.collections[col].photos[img].url;
     image.title = "Click to open image in new tab";
@@ -88,7 +114,7 @@ var loadimg = (col, img) => {
     var p = document.createElement("p");
     p.innerText = album.collections[col].photos[img].caption;
     document.getElementsByClassName("view")[0].innerHTML = "";
-    document.getElementsByClassName("view")[0].append(x, image, p);
+    document.getElementsByClassName("view")[0].append(controls, image, p);
     document.getElementsByClassName("view")[0].style.display = "block";
 }
 
