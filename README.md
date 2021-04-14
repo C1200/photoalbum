@@ -31,4 +31,3 @@ url: `string` The url of the photo.
 
 - ~~Next/previous photo button~~
 - Slide show button
-- Caching

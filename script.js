@@ -108,13 +108,31 @@ var loadimg = (col, img) => {
     }
 
     var image = document.createElement("img");
+
+    var filters = document.createElement("div");
+    filters.className = "filters-container";
+    filters.innerText = "Filters:"
+
+    var bandw = document.createElement("button");
+    bandw.innerText = "Black and White";
+    bandw.onclick = () => filter(image, "grayscale");
+    filters.append(bandw);
+    var negative = document.createElement("button");
+    negative.innerText = "Negative";
+    negative.onclick = () => filter(image, "invert");
+    filters.append(negative);
+    var sepia = document.createElement("button");
+    sepia.innerText = "Sepia";
+    sepia.onclick = () => filter(image, "sepia");
+    filters.append(sepia);
+
     image.src = album.collections[col].photos[img].url;
     image.title = "Click to open image in new tab";
     image.onclick = () => window.open(album.collections[col].photos[img].url);
     var p = document.createElement("p");
     p.innerText = album.collections[col].photos[img].caption;
     document.getElementsByClassName("view")[0].innerHTML = "";
-    document.getElementsByClassName("view")[0].append(controls, image, p);
+    document.getElementsByClassName("view")[0].append(controls, image, p, filters);
     document.getElementsByClassName("view")[0].style.display = "block";
 }
 
@@ -141,6 +159,14 @@ var home = () => {
         c.onclick = () => location.hash = `#col=${idx}`;
         colcontain.append(c);
     });
+}
+
+var _filter = [];
+var filter = (i, f) => {
+    f = `${f}()`;
+    if (!_filter.find(_ => _ === f)) _filter.push(f);
+    else _filter = _filter.filter(_ => _ !== f);
+    i.style.filter = _filter.join(" ");
 }
 
 window.onhashchange = hash;

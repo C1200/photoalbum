@@ -74,6 +74,23 @@ body {
     left: 5px;
 }
 
+.filters-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: black;
+    width: max-content;
+    padding: 5px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filters-container button {
+    margin: 5px 0px;
+    padding: 5px 20px;
+}
+
 @media only screen and (min-width: 600px) {
     /* Tablet */
     .collection { width: 40% }
