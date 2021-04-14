@@ -84,6 +84,8 @@ var loadimg = (col, img) => {
         location.hash = `#col=${col}`;
     }
 
+    _filter = [];
+
     var controls = document.createElement("div");
     controls.className = "controls-container";
 
