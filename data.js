@@ -18,6 +18,8 @@ var album = {
                 { caption: "m a t h s (pt2)", url: "images/hgfd654.png" },
                 { caption: "wwwwwwwwwwww", url: "images/ofpd987.png" },
                 { caption: "2 disc channels", url: "images/whja798.png" },
-                { caption: "2 emojis in one reaction?", url: "images/trey654.png" },
+                { caption: "2 emojis in one reaction?", url: "images/trey654.png" }
+            ]
+        }
     ]
 }
